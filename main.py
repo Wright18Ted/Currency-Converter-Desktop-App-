@@ -1,18 +1,42 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 
 def convert_currency():
-    print(f"Converting {amount_entry.get()} from {from_dropdown.get()} to {to_dropdown.get()}...")
+    # Basic validation for user input and dropdown selections (will add more robust validation as the app progresses)
+    from_curr = from_dropdown.get()
+    to_curr = to_dropdown.get()
+    user_input = amount_entry.get()
+    
+    if from_curr == to_curr:
+        messagebox.showerror("Error", f"Cannot convert {from_curr} to the same currency.")
+        return
+        
+    if not user_input:
+        messagebox.showerror("Error", "Please enter an amount to convert.")
+        return
+        
+    try:
+        amount = float(user_input)
+        if amount <= 0:
+            messagebox.showerror("Error", "Amount must be greater than zero.")
+            return
+            
+        print(f"UI Validated: Ready to convert {amount} {from_curr} to {to_curr}.")
+        
+    except ValueError:
+        messagebox.showerror("Error", f"'{user_input}' is not a valid number.")
 
+# Button effects
 def on_enter(e): convert_button.config(bg="#0071e3")
 def on_leave(e): convert_button.config(bg="#0088ff")
 
-# Main Application Window setup
+# Main App Window Setup 
 root = tk.Tk()
 root.title("Currency Converter") 
-root.configure(bg="#0f0f11")
-root.geometry("800x600")
-root.resizable(False, False)
+root.geometry("850x600") # made the window pannel bigger to accommodate the new right panel for the log. 
+root.resizable(False, False) # cannot resize the window to avoid layout issues. 
+
 
 style = ttk.Style()
 style.theme_use('default')
@@ -21,42 +45,63 @@ root.option_add("*TCombobox*Listbox.background", "#1e1e1e")
 root.option_add("*TCombobox*Listbox.foreground", "white")
 root.option_add("*TCombobox*Listbox.selectBackground", "#0a84ff")
 
-# UI Elements
-title_label = tk.Label(root, text="Currency Converter", font=("Arial", 26, "bold"), bg="#0f0f11", fg="white")
-title_label.pack(pady=(40, 20))
 
-info_label = tk.Label(root, text="Enter Amount:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
+# 1. LEFT PANEL: CONVERTER
+left_panel = tk.Frame(root, bg="#0f0f11", width=425, height=600)
+left_panel.pack(side="left", fill="both", expand=True)
+
+#Left side window UI Elements
+title_label = tk.Label(left_panel, text="Currency Converter", font=("Arial", 24, "bold"), bg="#0f0f11", fg="white")
+title_label.pack(pady=(50, 30))
+
+info_label = tk.Label(left_panel, text="Enter Amount:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
 info_label.pack(pady=(5, 0))
 
-amount_entry = tk.Entry(root, font=("Arial", 16), bg="#1e1e1e", fg="white", insertbackground="white", bd=0, highlightthickness=1, highlightbackground="#2c2c2e", highlightcolor="#0a84ff", justify="center")
+amount_entry = tk.Entry(left_panel, font=("Arial", 16), bg="#1e1e1e", fg="white", insertbackground="white", bd=0, highlightthickness=1, highlightbackground="#2c2c2e", highlightcolor="#0a84ff", justify="center")
 amount_entry.pack(pady=(5, 20), ipady=10, ipadx=15)
 
+# Placeholder currency options for the dropdowns (will be replaced with API options later)
 currency_options = ["USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY", "INR", "BRL"]
 
-# Convert from dropdown
-from_label = tk.Label(root, text="Convert from:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
+from_label = tk.Label(left_panel, text="Convert from:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
 from_label.pack(pady=(5, 0))
-from_dropdown = ttk.Combobox(root, values=currency_options, state="readonly", font=("Arial", 14), justify="center", width=6)
+from_dropdown = ttk.Combobox(left_panel, values=currency_options, state="readonly", font=("Arial", 14), justify="center", width=6)
 from_dropdown.set("GBP")
 from_dropdown.pack(pady=5)
 
-# Directional text
-to_label = tk.Label(root, text="to", font=("Arial", 12, "italic"), bg="#0f0f11", fg="#888888")
+to_label = tk.Label(left_panel, text="to", font=("Arial", 12, "italic"), bg="#0f0f11", fg="#888888")
 to_label.pack(pady=2)
 
-# Convert to dropdown
-to_dropdown_label = tk.Label(root, text="Convert to:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
+to_dropdown_label = tk.Label(left_panel, text="Convert to:", font=("Arial", 11), bg="#0f0f11", fg="#888888")
 to_dropdown_label.pack(pady=(5, 0))
-to_dropdown = ttk.Combobox(root, values=currency_options, state="readonly", font=("Arial", 14), justify="center", width=6)
+to_dropdown = ttk.Combobox(left_panel, values=currency_options, state="readonly", font=("Arial", 14), justify="center", width=6)
 to_dropdown.set("USD")
 to_dropdown.pack(pady=5)
 
-# Convert Button
-convert_button = tk.Label(root, text="Convert", font=("Arial", 14, "bold"), bg="#0088ff", fg="white", cursor="hand2", padx=40, pady=10)
-convert_button.pack(pady=(25, 30))
+convert_button = tk.Label(left_panel, text="Convert", font=("Arial", 14, "bold"), bg="#0088ff", fg="white", cursor="hand2", padx=40, pady=10)
+convert_button.pack(pady=(35, 30))
 
 convert_button.bind("<Enter>", on_enter)
 convert_button.bind("<Leave>", on_leave)
 convert_button.bind("<Button-1>", lambda event: convert_currency())
+
+
+# RIGHT PANEL: TRANSACTION AUDIT LOG
+right_panel = tk.Frame(root, bg="#141416", width=425, height=600, highlightthickness=1, highlightbackground="#2c2c2e")
+right_panel.pack(side="right", fill="both", expand=True)
+
+#Right Side Window Elements
+history_title = tk.Label(right_panel, text="Historical Log", font=("Arial", 18, "bold"), bg="#141416", fg="white")
+history_title.pack(pady=(50, 5))
+
+history_subtitle = tk.Label(right_panel, text="Local pipeline audit history (CSV)", font=("Arial", 10, "italic"), bg="#141416", fg="#666666")
+history_subtitle.pack(pady=(0, 15))
+
+
+history_box = tk.Text(right_panel, height=20, width=42, bg="#1e1e1e", fg="#a1a1aa", font=("Courier", 11), bd=0, highlightthickness=1, highlightbackground="#2c2c2e", padx=10, pady=10)
+history_box.pack(pady=10)
+
+history_box.insert(tk.END, "No local history found.\nRun a conversion to append data.")
+history_box.config(state="disabled")
 
 root.mainloop()

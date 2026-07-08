@@ -5,7 +5,6 @@ from tkinter import messagebox
 import currency_api
 import conversion_log 
 
-
 def convert_currency():
     from_curr = from_dropdown.get()
     to_curr = to_dropdown.get()
@@ -123,7 +122,7 @@ right_panel.pack(side="right", fill="both", expand=True)
 history_title = tk.Label(right_panel, text="Historical Log", font=("Arial", 18, "bold"), bg="#141416", fg="white")
 history_title.pack(pady=(50, 5))
 
-history_subtitle = tk.Label(right_panel, text="Local pipeline audit history (CSV)", font=("Arial", 10, "italic"), bg="#141416", fg="#666666")
+history_subtitle = tk.Label(right_panel, text="Local Saved Conversions (no need to worry these are auto-saved! )", font=("Arial", 10, "italic"), bg="#141416", fg="#666666")
 history_subtitle.pack(pady=(0, 15))
 
 

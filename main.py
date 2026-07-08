@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 
 import currency_api
+import conversion_log 
 
 def convert_currency():
     from_curr = from_dropdown.get()
@@ -36,8 +37,10 @@ def convert_currency():
         final_result = round(amount * target_rate, 2)
         
         print(f"SUCCESS: {amount} {from_curr} = {final_result} {to_curr}")
+        conversion_log.log_conversion(from_curr, to_curr, amount, final_result)
         messagebox.showinfo("SUCCESS", f"{amount} {from_curr} = {final_result} {to_curr}")
         
+
     except ValueError:
         messagebox.showerror("Error", f"'{user_input}' is not a valid number.")
 

@@ -2,8 +2,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 
+import currency_api
+
 def convert_currency():
-    # Basic validation for user input and dropdown selections (will add more robust validation as the app progresses)
     from_curr = from_dropdown.get()
     to_curr = to_dropdown.get()
     user_input = amount_entry.get()
@@ -21,8 +22,21 @@ def convert_currency():
         if amount <= 0:
             messagebox.showerror("Error", "Amount must be greater than zero.")
             return
+        rates = currency_api.fetch_live_rates(from_curr)
+        
+        if rates is None:
+            messagebox.showerror("Network Error", "Failed to get live rates. Check internet connection.")
+            return
             
-        print(f"UI Validated: Ready to convert {amount} {from_curr} to {to_curr}.")
+        target_rate = rates.get(to_curr)
+        if not target_rate:
+            messagebox.showerror("Error", f"Could not find exchange rate for {to_curr}.")
+            return
+            
+        final_result = round(amount * target_rate, 2)
+        
+        print(f"SUCCESS: {amount} {from_curr} = {final_result} {to_curr}")
+        messagebox.showinfo("SUCCESS", f"{amount} {from_curr} = {final_result} {to_curr}")
         
     except ValueError:
         messagebox.showerror("Error", f"'{user_input}' is not a valid number.")

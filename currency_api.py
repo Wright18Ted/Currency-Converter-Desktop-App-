@@ -1,5 +1,6 @@
 import requests
 
+#function to fetch live currenecy rates from the API for caluction on exchange rates. 
 def fetch_live_rates(base_currency):
     
     url = f"https://open.er-api.com/v6/latest/{base_currency}"
@@ -19,3 +20,4 @@ def fetch_live_rates(base_currency):
     except requests.exceptions.RequestException as e:
         print(f"Network Pipeline Error: {e}")
         return None
+

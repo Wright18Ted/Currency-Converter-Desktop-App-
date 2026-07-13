@@ -121,7 +121,6 @@ right_panel.pack(side="right", fill="both", expand=True)
 
 #Right Side Window Elements
 
-
 ##------Live Currenecy Rates Page------##
 right_live_rate_button = tk.Label(right_panel,text="View Live Rates Board", font=["Arial", 9, "bold"],bg="#444343",fg="white",cursor="hand2",padx=8,pady=4)
 right_live_rate_button.pack(anchor="ne", padx=20, pady=(25, 0))
@@ -134,11 +133,16 @@ history_title.pack(pady=(50, 5))
 history_subtitle = tk.Label(right_panel, text="Local Saved Conversions (no need to worry these are auto-saved! )", font=("Arial", 10, "italic"), bg="#141416", fg="#666666")
 history_subtitle.pack(pady=(0, 15))
 
-history_box = tk.Text(right_panel, height=15, width=52, bg="#1e1e1e", fg="#a1a1aa", font=("Courier", 11), bd=0, highlightthickness=1, highlightbackground="#2c2c2e", padx=10, pady=10)
+history_box = tk.Text(right_panel, height=15, width=64, bg="#1e1e1e", fg="#a1a1aa", font=("Courier", 11), bd=0, highlightthickness=1, highlightbackground="#2c2c2e", padx=10, pady=10)
 history_box.pack(pady=10)
 
 history_box.insert(tk.END, "No local history found.\nRun a conversion to append data.")
 history_box.config(state="disabled")
+
+clear_csv_button = tk.Label(right_panel, text="Clear Log", font=("Arial", 10, "bold"), bg="#ff3b30", fg="white", cursor="hand2", padx=12, pady=6)
+clear_csv_button.pack(pady=(5, 15))
+clear_csv_button.bind("<Button-1>", lambda event: [messagebox.showinfo("Clear Log", conversion_log.clear_cvs()), refresh_history_display()])
+
 
 refresh_history_display()
 root.mainloop()

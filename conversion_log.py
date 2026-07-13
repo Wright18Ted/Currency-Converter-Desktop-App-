@@ -1,4 +1,5 @@
 import csv
+import os
 import time 
 
 csv_file_path = 'conversion_log.csv'
@@ -20,10 +21,9 @@ def read_last_entries(limit=15):
             lines = list(reader)
             if len(lines) <= 1:  
                 return "No local history found.\nRun a conversion to append data."
-            header = lines[0]
+                
             data_rows = lines[-limit:]
-            output = f"{'Time':<12} | {'From':<4} -> {'To':<4} | {'Amount':<8} | {'Result':<8}\n"
-            output += "-" * 50 + "\n"    
+            output = ""   
             for row in data_rows:
                 time_str = row[0].split(" ")[1] if " " in row[0] else row[0]
                 output += f"{time_str:<12} | {row[1]:<4} -> {row[2]:<4} | {row[3]:<8} | {row[4]:<8}\n"
@@ -31,7 +31,16 @@ def read_last_entries(limit=15):
             return output
     except Exception as e:
         return f"Error reading log pipeline: {e}"
-
-
-
-
+    
+def clear_cvs():
+    if os.path.exists(csv_file_path):
+        try:
+            with open(csv_file_path, mode='w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow(["Timestamp", "From Currency", "To Currency", "Amount", "Result"])
+            return "Conversion log cleared successfully."
+        except Exception as e:
+            return f"Error clearing log pipeline: {e}"
+    else:
+        return "No log file found to clear."
+ 

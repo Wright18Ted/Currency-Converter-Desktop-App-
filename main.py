@@ -143,6 +143,14 @@ clear_csv_button = tk.Label(right_panel, text="Clear Log", font=("Arial", 10, "b
 clear_csv_button.pack(pady=(5, 15))
 clear_csv_button.bind("<Button-1>", lambda event: [messagebox.showinfo("Clear Log", conversion_log.clear_cvs()), refresh_history_display()])
 
+download_csv_button = tk.Label(right_panel, text="Download Log", font=("Arial", 10, "bold"), bg="#34c759", fg="white", cursor="hand2", padx=12, pady=6)
+download_csv_button.pack(pady=(5, 15))
+download_csv_button.bind("<Button-1>", lambda event: [messagebox.showinfo("Download Log", conversion_log.download_csv()), refresh_history_display()])
+
+#In Development (getting prepared for future updates *uploading the CVS to a local DB for research and analysis purposes*)
+upload_csv_button = tk.Label(right_panel, text="Upload Log (In Development)", font=("Arial", 10, "bold"), bg="#ff9f0a", fg="white", cursor="hand2", padx=12, pady=6)
+upload_csv_button.pack(pady=(5, 15))
+
 
 refresh_history_display()
 root.mainloop()

@@ -43,4 +43,21 @@ def clear_cvs():
             return f"Error clearing log pipeline: {e}"
     else:
         return "No log file found to clear."
+    
+def download_csv():
+    if os.path.exists(csv_file_path):
+        try:
+            import shutil
+            from pathlib import Path
+        
+            download_dir = Path.home() / "Downloads"
+            download_path = os.path.join(download_dir, "currency_conversion_log.csv")
+            shutil.copy2(csv_file_path, download_path)
+
+            return f"Log downloaded successfully to {download_path}."
+        except Exception as e:
+            return f"Error downloading log pipeline: {e}"
+    else:
+        return "No log file found to download."
+    
  

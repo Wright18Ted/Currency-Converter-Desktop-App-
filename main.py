@@ -3,7 +3,8 @@ from tkinter import ttk
 from tkinter import messagebox
 
 import currency_api
-import conversion_log 
+import conversion_log
+import live_rates 
 
 def convert_currency():
     from_curr = from_dropdown.get()
@@ -119,6 +120,15 @@ right_panel = tk.Frame(root, bg="#141416", width=425, height=600, highlightthick
 right_panel.pack(side="right", fill="both", expand=True)
 
 #Right Side Window Elements
+
+
+##------Live Currenecy Rates Page------##
+
+right_live_rate_button = tk.Label(right_panel,text="View Live Rates Board", font=["Arial", 9, "bold"],bg="#444343",fg="white",cursor="hand2",padx=8,pady=4)
+right_live_rate_button.pack(anchor="ne", padx=20, pady=(25, 0))
+right_live_rate_button.bind("<Button-1>", lambda event: live_rates.open_live_rates_page(root))
+
+#--------History Log Section--------#
 history_title = tk.Label(right_panel, text="Historical Log", font=("Arial", 18, "bold"), bg="#141416", fg="white")
 history_title.pack(pady=(50, 5))
 

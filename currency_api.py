@@ -10,7 +10,6 @@ def fetch_live_rates(base_currency):
         
         data = response.json()
         
-        
         if data.get("result") == "success":
             return data["rates"]
         else:

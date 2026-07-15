@@ -5,6 +5,7 @@ from tkinter import messagebox
 import currency_api
 import conversion_log
 import live_rates 
+import upload_cvs_toDB
 
 def convert_currency():
     from_curr = from_dropdown.get()
@@ -73,7 +74,6 @@ style.configure("TCombobox", fieldbackground="#1e1e1e", background="#2c2c2e", fo
 root.option_add("*TCombobox*Listbox.background", "#1e1e1e")
 root.option_add("*TCombobox*Listbox.foreground", "white")
 root.option_add("*TCombobox*Listbox.selectBackground", "#0a84ff")
-
 
 # 1. LEFT PANEL: CONVERTER
 left_panel = tk.Frame(root, bg="#0f0f11", width=425, height=600)
@@ -150,6 +150,8 @@ download_csv_button.bind("<Button-1>", lambda event: [messagebox.showinfo("Downl
 #In Development (getting prepared for future updates *uploading the CVS to a local DB for research and analysis purposes*)
 upload_csv_button = tk.Label(right_panel, text="Upload Log (In Development)", font=("Arial", 10, "bold"), bg="#ff9f0a", fg="white", cursor="hand2", padx=12, pady=6)
 upload_csv_button.pack(pady=(5, 15))
+upload_csv_button.bind("<Button-1>", lambda event: upload_cvs_toDB.upload_csv_to_db(root))
+
 
 
 refresh_history_display()

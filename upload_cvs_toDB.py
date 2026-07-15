@@ -24,15 +24,6 @@ def upload_csv_to_db(parent_window):
 
     create_env_file_button = tk.Button(uploadCVS, text="Create .env File", font=("Arial", 12, "bold"), bg="#d99910", fg="white", cursor="hand2", padx=20, pady=10)
     create_env_file_button.pack(pady=(0, 15))
-    
+
     upload_button = tk.Button(uploadCVS, text="Upload CSV To Local Database", font=("Arial", 12, "bold"), bg="#13dd17", fg="white", cursor="hand2", padx=20, pady=10)
     upload_button.pack(pady=(0, 15))
-
-
-
-
-
-    
-
-
-

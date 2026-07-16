@@ -152,7 +152,5 @@ upload_csv_button = tk.Label(right_panel, text="Upload Log (In Development)", fo
 upload_csv_button.pack(pady=(5, 15))
 upload_csv_button.bind("<Button-1>", lambda event: upload_cvs_toDB.upload_csv_to_db(root))
 
-
-
 refresh_history_display()
 root.mainloop()

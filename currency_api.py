@@ -1,6 +1,6 @@
 import requests
 
-#function to fetch live currenecy rates from the API for caluction on exchange rates. 
+#function to fetch live currenecy rates from the API for caluction/displaying exchange rates. 
 def fetch_live_rates(base_currency):
     
     url = f"https://open.er-api.com/v6/latest/{base_currency}"

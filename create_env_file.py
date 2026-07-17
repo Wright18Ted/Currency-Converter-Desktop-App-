@@ -106,8 +106,6 @@ def create_env_file(parent_window):
         except Exception as e:
             messagebox.showerror("File Error", f"Failed to save .env file:\n{e}", parent=env_window)
 
-
-   
     save_btn = tk.Button(
         env_window, text="Save Configuration", command=save_env, bg="#007acc", fg="white", font=("Arial", 10, "bold"), activebackground="#005999", activeforeground="white", bd=0, cursor="hand2", pady=8
     )

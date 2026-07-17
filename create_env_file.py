@@ -2,6 +2,19 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 
+
+
+
+def delete_env_file():
+    if os.path.exists(".env"):
+        try:
+            os.remove(".env")
+            messagebox.showinfo("Success", ".env file deleted successfully!")
+        except Exception as e:
+                    messagebox.showerror("File Error", f"Failed to delete .env file:\n{e}")
+        else:
+            messagebox.showinfo("Info", ".env file does not exist.")
+
 def create_env_file(parent_window):
     current_settings = {
         "POSTGRES_HOST": "localhost", 
@@ -94,6 +107,7 @@ def create_env_file(parent_window):
             
         except Exception as e:
             messagebox.showerror("File Error", f"Failed to save .env file:\n{e}", parent=env_window)
+
 
    
     save_btn = tk.Button(

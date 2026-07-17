@@ -3,17 +3,15 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-
-
 def delete_env_file():
     if os.path.exists(".env"):
         try:
             os.remove(".env")
             messagebox.showinfo("Success", ".env file deleted successfully!")
         except Exception as e:
-                    messagebox.showerror("File Error", f"Failed to delete .env file:\n{e}")
-        else:
-            messagebox.showinfo("Info", ".env file does not exist.")
+            messagebox.showerror("File Error", f"Failed to delete .env file:\n{e}")
+    else:
+        messagebox.showinfo("Info", ".env file does not exist.")
 
 def create_env_file(parent_window):
     current_settings = {
@@ -114,3 +112,4 @@ def create_env_file(parent_window):
         env_window, text="Save Configuration", command=save_env, bg="#007acc", fg="white", font=("Arial", 10, "bold"), activebackground="#005999", activeforeground="white", bd=0, cursor="hand2", pady=8
     )
     save_btn.pack(pady=(20, 0), fill="x", padx=40)
+

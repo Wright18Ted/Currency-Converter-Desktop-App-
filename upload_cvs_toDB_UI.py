@@ -1,13 +1,14 @@
 import tkinter as tk
 
 import create_env_file
+from upload_cvs_toDB_Connection import load_CSV_To_Local_DB
 
 def upload_csv_to_db(parent_window):
     uploadCVS= tk.Toplevel(parent_window)
     uploadCVS.title("Upload CSV to Database")
     uploadCVS.geometry("850x700")
     uploadCVS.configure(bg="#1a1a1a")
-    uploadCVS.resizable(False, False)
+    uploadCVS.resizable(True, True)
 
     title_label = tk.Label(uploadCVS, text="Upload CSV to Database", font=("Arial", 24, "bold"), bg="#1a1a1a", fg="white")
     title_label.pack(pady=(15, 5))
@@ -36,3 +37,4 @@ def upload_csv_to_db(parent_window):
 
     upload_button = tk.Button(uploadCVS, text="Upload CSV To Local Database", font=("Arial", 12, "bold"), bg="#13dd17", fg="white", cursor="hand2", padx=20, pady=10)
     upload_button.pack(pady=(0, 15))
+    upload_button.bind("<Button-1>", lambda event: load_CSV_To_Local_DB())  # Calls the upload_csv_to_db function when clicked.

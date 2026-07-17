@@ -65,7 +65,7 @@ def on_leave(e): convert_button.config(bg="#0088ff")
 root = tk.Tk()
 root.title("Currency Converter") 
 root.geometry("850x600") # made the window pannel bigger to accommodate the new right panel for the log. 
-root.resizable(False, False) # cannot resize the window to avoid layout issues. 
+root.resizable(True, True) # cannot resize the window to avoid layout issues. 
 
 
 style = ttk.Style()

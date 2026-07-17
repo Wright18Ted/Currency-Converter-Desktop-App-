@@ -26,7 +26,6 @@ def load_CSV_To_Local_DB():
             print('Opening cursor...')
             with connection.cursor() as cursor:
 
-                
                 print('Creating tables...')
                 create_table_query = '''
                 CREATE TABLE IF NOT EXISTS conversion_log (
@@ -41,9 +40,8 @@ def load_CSV_To_Local_DB():
                 cursor.execute(create_table_query)
                 print('Table "conversion_log" verified/created successfully.')
 
-                
                 print(f'Reading data from {csv_filename}...')
-                with open(csv_filename, mode='r') as csv_file:
+                with open(csv_filename, mode='r', encoding='utf-8-sig') as csv_file:
                     csv_reader = csv.DictReader(csv_file)
                     
                     insert_query = '''
@@ -54,15 +52,14 @@ def load_CSV_To_Local_DB():
                     inserted_count = 0
                     for row in csv_reader:
                         cursor.execute(insert_query, (
-                            row['from_currency'],
-                            row['to_currency'],
-                            float(row['amount']),
-                            float(row['result']),
-                            row.get('conversion_time') if row.get('conversion_time') else None
+                            row['from Currency'],
+                            row['to Currency'],
+                            float(row['Amount']),
+                            float(row['Result']),
+                            row.get('Timestamp') if row.get('Timestamp') else None
                         ))
                         inserted_count += 1
                 
-        
                 connection.commit()
                 print(f'Successfully loaded {inserted_count} records!')
                 messagebox.showinfo("Success", f"Successfully uploaded {inserted_count} records to the database!")

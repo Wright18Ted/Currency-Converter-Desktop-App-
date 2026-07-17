@@ -5,7 +5,7 @@ from tkinter import messagebox
 import currency_api
 import conversion_log
 import live_rates 
-import upload_cvs_toDB
+import upload_cvs_toDB_UI
 
 def convert_currency():
     from_curr = from_dropdown.get()
@@ -150,7 +150,7 @@ download_csv_button.bind("<Button-1>", lambda event: [messagebox.showinfo("Downl
 #In Development (getting prepared for future updates *uploading the CVS to a local DB for research and analysis purposes*)
 upload_csv_button = tk.Label(right_panel, text="Upload Log (In Development)", font=("Arial", 10, "bold"), bg="#ff9f0a", fg="white", cursor="hand2", padx=12, pady=6)
 upload_csv_button.pack(pady=(5, 15))
-upload_csv_button.bind("<Button-1>", lambda event: upload_cvs_toDB.upload_csv_to_db(root))
+upload_csv_button.bind("<Button-1>", lambda event: upload_cvs_toDB_UI.upload_csv_to_db(root))
 
 refresh_history_display()
 root.mainloop()

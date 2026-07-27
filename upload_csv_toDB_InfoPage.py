@@ -49,9 +49,4 @@ def info_page_for_CSV_Upload(parent_window):
                 
     q5_answer_label = tk.Label(info_upload, text="Use the built-in app function to generate the .env file when configuring your setup, then delete it immediately after use so it never stays unattended in local storage.", font=("Helvetica", 14, "bold"), fg="#ffffff", bg="#1a1a1a",anchor="w")
     q5_answer_label.pack(fill="x", padx = 40, pady =(10,5 ))
-
-
-
-
-
-
+    

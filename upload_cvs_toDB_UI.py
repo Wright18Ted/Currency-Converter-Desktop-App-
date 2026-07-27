@@ -2,6 +2,7 @@ import tkinter as tk
 
 import create_env_file
 from upload_cvs_toDB_Connection import load_CSV_To_Local_DB
+from upload_csv_toDB_InfoPage import info_page_for_CSV_Upload
 
 def upload_csv_to_db(parent_window):
     uploadCVS= tk.Toplevel(parent_window)
@@ -18,6 +19,10 @@ def upload_csv_to_db(parent_window):
     
     log_subtitle = tk.Label(uploadCVS, text="Upload your conversion log CSV to the database for analysis.", font=("Arial", 10, "italic"), bg="#1a1a1a", fg="#666666")
     log_subtitle.pack(pady=(0, 15))
+
+    information_button = tk.Button(uploadCVS, text="Information", font=("Arial", 12, "bold"), bg="#0288ff", fg="white", cursor="hand2", padx=20, pady=10)
+    information_button.pack(anchor="e", padx=(0, 20))
+    information_button.bind("<Button-1>", lambda event: info_page_for_CSV_Upload(parent_window))
 
     upload_terminal_label = tk.Label(uploadCVS, text="Upload Terminal:", font=("Arial", 12, "bold"), bg="#1a1a1a", fg="white")
     upload_terminal_label.pack(pady=(0, 5))

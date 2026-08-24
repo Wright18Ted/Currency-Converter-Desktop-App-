@@ -23,6 +23,6 @@ The application features a dark-themed, multi-window layout built in Tkinter tha
 * **Database Ingestion Terminal:** An automated upload utility window providing visual terminal feedback when pushing stored CSV log files directly into the local PostgreSQL database.
 * **Database Environment Setup (`.env` Config):** A quick configuration modal for managing local database connection parameters (DB Host, DB Name, DB User, and Password) dynamically without altering source code.
 
-![App Interface Overview](/Users/tedwright/Desktop/Assessment-Day-August-Task/Currency converter Read-Me/Currency-Converter-Desktop-App-/Images/Screenshot 2026-08-24 at 09.56.59.png)
+![App Interface Overview](Images/WIP_APP_LAYOUT_AUGUST_26.png)
 *Figure 1: Application workspace showing the main converter, live rate board, DB ingestion terminal, and environment setup window.*
 

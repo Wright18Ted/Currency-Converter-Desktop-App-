@@ -70,7 +70,9 @@ Ensure you have the following installed on your system before running the applic
 * **PostgreSQL** (running locally)
 
 Clone The REPO:
-"git clone https://github.com/Wright18Ted/Currency-Converter-Desktop-App-.git" 
+```bash
+git clone https://github.com/Wright18Ted/Currency-Converter-Desktop-App-.git
+```
 
 Install the required Python packages:
 

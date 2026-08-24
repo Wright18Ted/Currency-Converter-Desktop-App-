@@ -80,7 +80,7 @@ Install the required Python packages:
 pip install psycopg2-binary requests python-dotenv
 ```
 
-Run main.py to run the application
+Run main.py to run the application 
 
 Configure database credentials:
 * Click the Create .env File button inside the app UI.

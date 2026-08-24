@@ -22,6 +22,6 @@ The application features a dark-themed, multi-window layout built in Tkinter tha
 * **Database Information Page:** Built-in onboard documentation answering common user questions, database row limits, and troubleshooting steps for non-technical staff.
 * **Database Environment Setup (`.env` Config):** A quick configuration modal for managing local database connection parameters (DB Host, DB Name, DB User, and Password) dynamically.
 
-![App Interface Overview](images/WIP_APP_LAYOUT_AUGUST_26.png)
+![App Interface Overview](Images/WIP_APP_LAYOUT_AUGUST_26.png)
 *Figure 1: Complete application workspace showing all active modular windows.*
 

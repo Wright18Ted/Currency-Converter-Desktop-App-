@@ -1,6 +1,7 @@
 ## All in One Currency Converter
 
-⚠️ 🚧 Active Development: This application is fully functional, but the user interface is still undergoing active design changes. Some features may be missing or unpolished as development continues.
+> [!WARNING]
+> Active Development: This application is fully functional, but the user interface is still undergoing active design changes. Some features may be missing or unpolished as development continues.
 
 # Project Description 
 

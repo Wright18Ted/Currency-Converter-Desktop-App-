@@ -85,6 +85,4 @@ Run main.py to run the application
 Configure database credentials:
 * Click the Create .env File button inside the app UI.
 * Enter your local PostgreSQL host, database name, user, and password parameters.
-* Save the configuration to establish database ingestion functionalit
-
-
+* Save the configuration to establish database ingestion functionality. 

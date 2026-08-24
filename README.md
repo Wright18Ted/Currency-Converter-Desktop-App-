@@ -23,5 +23,31 @@ The application features a dark-themed, multi-window layout built in Tkinter tha
 * **Database Environment Setup (`.env` Config):** A quick configuration modal for managing local database connection parameters (DB Host, DB Name, DB User, and Password) dynamically.
 
 ![App Interface Overview](Images/WIP_APP_LAYOUT_AUGUST_26.png)
-*Figure 1: Complete application workspace showing all active modular windows.*
+*Figure 1: Full desktop setup featuring live currency calculations alongside background logging and database management windows.*
 
+# Feature Set 
+
+* **Real-Time Currency Conversion:** Instantly calculates exchange rates using custom cross-rate logic with a simplified, non-technical calculator interface designed for fast retail transactions.
+* **Dual-Pane Main Window:** Displays a live converter alongside an active **Historical Log** panel, allowing users to track prior conversions and plan upcoming transactions simultaneously on a single screen.
+* **Local Flat-File Logging:** Automatically writes every converted transaction to a structured local CSV file with options to view, clear, or export logs locally.
+* **PostgreSQL ETL Pipeline:** Features a dedicated upload window and terminal output box that reads CSV transaction logs and ingests records directly into a local PostgreSQL database for permanent storage.
+* **Live Exchange Rates Board:** Opens a dedicated reference board displaying real-time exchange rates against base currency (GBP) across major global currencies.
+* **Dynamic `.env` Configuration:** Includes a built-in GUI configuration modal to seamlessly set up local database connection parameters (DB Host, DB Name, DB User, and Password) without editing source code.
+* **Onboard Help & Documentation:** Integrates an in-app information page answering common upload questions, batch processing limits, and troubleshooting steps for non-technical users.
+
+## Supported Currencies
+
+The application supports cross-rate conversion calculations for 10 major global currencies:
+
+| Code | Currency Name |
+| :--- | :--- |
+| **GBP** | British Pound Sterling (Default Base) |
+| **USD** | United States Dollar |
+| **EUR** | Euro |
+| **JPY** | Japanese Yen |
+| **CAD** | Canadian Dollar |
+| **AUD** | Australian Dollar |
+| **CHF** | Swiss Franc |
+| **CNY** | Chinese Yuan |
+| **INR** | Indian Rupee |
+| **BRL** | Brazilian Real |

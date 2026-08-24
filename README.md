@@ -51,3 +51,38 @@ The application supports cross-rate conversion calculations for 10 major global 
 | **CNY** | Chinese Yuan |
 | **INR** | Indian Rupee |
 | **BRL** | Brazilian Real |
+
+## Tech Stack
+
+* **Language:** Python 3.x
+* **GUI Framework:** Tkinter
+* **Database:** PostgreSQL
+* **Database Driver:** `psycopg2`
+* **Data Handling:** CSV / Pandas / `python-dotenv`
+
+## Prerequisites & Setup
+
+### Prerequisites
+
+Ensure you have the following installed on your system before running the application:
+
+* **Python 3.10+**
+* **PostgreSQL** (running locally)
+
+Clone The REPO:
+git clone https://github.com/Wright18Ted/Currency-Converter-Desktop-App-.git
+
+Install the required Python packages:
+
+```bash
+pip install psycopg2-binary requests python-dotenv
+```
+
+Run main.py to run the application
+
+Configure database credentials:
+* Click the Create .env File button inside the app UI.
+* Enter your local PostgreSQL host, database name, user, and password parameters.
+* Save the configuration to establish database ingestion functionalit
+
+

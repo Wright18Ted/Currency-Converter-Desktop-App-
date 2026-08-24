@@ -1,7 +1,7 @@
 # Project Description 
 
-[!WARNING]
-Active Development: This application is currently in active development. Features, UI components, and backend logic are subject to change before the final release.
+# [!WARNING]
+Active Development: This application is fully functional, but the user interface is still undergoing active design changes. Some features may be missing or unpolished as development continues.
 
 * Built an all-in-one desktop currency converter in Python (Tkinter) tailored for retail environments requiring fast, frequent daily currency calculations.
 

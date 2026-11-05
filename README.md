@@ -1,7 +1,7 @@
 ## All in One Currency Converter
 
 > [!WARNING]
-> Active Development: This application is fully functional, but the user interface is still undergoing active design changes. Some features may be missing or unpolished as development continues.
+> ⚠️ WIP: The app is fully functional, but the UI and features are still a work in progress. Please note that the application has currently only been tested on macOS 27.
 
 # Project Description 
 
